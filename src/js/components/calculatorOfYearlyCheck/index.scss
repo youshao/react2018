@@ -1,0 +1,276 @@
+
+//小标题
+.subTitle{
+    font-size: 30px;
+    line-height: 30px;
+    padding: 54px 30px 20px;
+    color: #6a6a6a;
+}
+
+//右上角重新计算
+.topRIconbox{
+    position: absolute;
+    top:32px;
+    right: 36px;
+    line-height: 36px;
+    text-align: right;
+    padding-left: 44px;
+    font-size: 26px;
+    color: #ababab;
+    background: url('./images/refresh-icon2.png') no-repeat left center;
+    background-size: 36px auto;
+    z-index: 1;
+}
+
+//时间列表
+.dateList{
+    position: relative;
+    max-height: 530px;
+    margin: 30px;
+    background: #fff;
+    border-radius: 6px;
+    overflow: auto;
+    &>div{
+        height: 110px;
+        line-height: 110px;
+        border-bottom: 1PX solid #e5e5e5;
+        color: #2582EA;
+        font-size: 40px;
+        text-align: center;
+    }
+}
+
+.listItem{
+    font-size: 30px;
+    color: #6a6a6a;
+}
+.listItemExtra{
+    font-size: 30px;
+    color: #ababab;
+}
+
+//按钮
+.btn{
+    margin: 30px;
+    background: #2582EA;
+    color: #fff;
+    height: 84px;
+    line-height: 84px;
+    text-align: center;
+    font-size: 34px;
+    border-radius: 6px;
+    cursor: pointer;
+    &:active{
+        opacity: .8;
+    }
+}
+
+//年检时间计算说明
+.desBox{
+    padding: 26px 30px;
+    .desTitle{
+        position: relative;
+        width: 100%;
+        text-align: center;
+        background: #f2f2f2;
+        overflow: hidden;
+        span{
+            position: relative;
+            display: inline-block;
+            padding: 0 30px;
+            font-size: 30px;
+            line-height: normal;
+            color: #6a6a6a;
+            background: inherit;
+            z-index: 2;
+        }
+        &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 1PX;
+            background: #ababab;
+        }
+    }
+    .desText{
+        padding-top: 38px;
+        p{
+            position: relative;
+            padding-left: 32px;
+            font-size: 26px;
+            line-height: 40px;
+            color: #ababab;
+            padding-bottom: 17px;
+            span{
+                position: absolute;
+                left: 0;
+            }
+        }
+    }
+}
+
+//-------------------------------上面是年检计算器的CSS------------------------------------
+//-------------------------------下面是年检状态的CSS------------------------------------
+
+//年检状态
+.detailBox{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background: #fff;
+    color: #1a1a1a;
+
+    //车牌
+    .carNum{
+        position: relative;
+        margin-left: 30px;
+        padding: 30px 30px 30px 42px;
+        font-size: 34px;
+        line-height: 30px;
+        background: url('./images/car-icon.png') no-repeat left center scroll;
+        background-size: 32px 38px;
+        color: #1a1a1a;
+    }
+    //状态
+    .stateBox{
+        padding-top: 70px;
+        text-align: center;
+        line-height: 0;
+
+        //状态图标
+        i{
+            display: inline-block;
+            width: 160px;
+            height: 160px;
+            background: url('./images/state-normal.png') no-repeat center center scroll;
+            background-size: 160px 160px;
+        }
+        .stateIcon0{
+            background-image: url('./images/state-normal.png');
+        }
+        .stateIcon1{
+            background-image: url('./images/state-canOrder.png');
+        }
+        .stateIcon2,.stateIcon3,.stateIcon4{
+            background-image: url('./images/state-overdue.png');
+        }
+        .stateIcon5{
+            background-image: url('./images/state-crap.png');
+        }
+
+        //状态文字
+        span{
+            display: block;
+            width: 100%;
+            padding-top: 30px;
+            font-size: 36px;
+            line-height: normal;
+        }
+        .stateText0{
+            color: #09BB07;
+        }
+        .stateText1{
+            color: #10AEFF;
+        }
+        .stateText2,.stateText3,.stateText4{
+            color: #FF9A0A;
+        }
+        .stateText5{
+            color: #FF4444;
+        }
+    }
+
+    //日期
+    .datesBox{
+        padding-top: 60px;
+        font-size: 24px;
+        line-height: normal;
+        color: #ababab;
+        text-align: center;
+        span{
+            padding: 0 20px;
+        }
+    }
+
+    //文字提示
+    .stateMsgBox{
+        margin: 20px 30px 30px;
+        padding: 24px 30px 0 50px;
+        background: #F1FAFF;
+        border-radius: 6px;
+
+        p{
+            position: relative;
+            padding-bottom: 16px;
+            font-size: 28px;
+            color: #1a1a1a;
+            line-height: 42px;
+            &:after{
+                content: '';
+                position: absolute;
+                left: -26px;
+                top: 12px;
+                display: block;
+                width: 16px;
+                height: 16px;
+                background: #2582EA;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    //按钮
+    .stateBtns{
+        padding: 0 30px;
+        overflow: hidden;
+
+        span{
+            display: block;
+            width: 330px;
+            height: 88px;
+            line-height: 88px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 34px;
+            overflow: hidden;
+
+            &:first-of-type{
+                float: left;
+                border: 1PX solid #2582EA;
+                background: #fff;
+                color: #2582EA;
+            }
+            &:last-of-type{
+                float: right;
+                background: #2582EA;
+                color: #fff;
+            }
+        }
+    }
+    .stateBtn{
+        padding: 30px;
+        text-align: center;
+        span{
+            display: block;
+            margin: 0 auto;
+            width: 330px;
+            height: 88px;
+            line-height: 88px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 34px;
+            overflow: hidden;
+            border: 1PX solid #2582EA;
+            background: #fff;
+            color: #2582EA;
+        }
+    }
+
+
+}

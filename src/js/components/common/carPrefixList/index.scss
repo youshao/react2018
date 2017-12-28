@@ -1,0 +1,41 @@
+.carPrefixList{
+	background: rgba(0, 0, 0, 0.25);
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9991; //在geeter的顶层
+}
+
+.carPrefixList dl {
+	background: #c9c9c9;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 1.5% !important;
+	padding: 0;
+	z-index: 9992;
+	clear: both;
+}
+
+.carPrefixList dd {
+	float: left;
+	font-size: 14PX;
+	padding: 10PX 0;
+	min-width: 13.5%;
+	max-width: 29%;
+	margin: 1.5%;
+	text-align: center;
+	background: #ededed;
+	color: #4a4a4a;
+	border-radius: 4PX;
+	border: 1PX solid #fff;
+	border-bottom-color: #959595;
+	box-shadow: 0 1PX 0 #999;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

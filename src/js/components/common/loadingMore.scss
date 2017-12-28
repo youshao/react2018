@@ -1,0 +1,36 @@
+.box{
+	overflow: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* 点击加载更多 */
+.loadMoreBtn{
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.28rem;
+  color: #ababab;
+  text-align: center;
+}
+
+/*END时添加的横线*/
+.hasLine{
+	position:relative;
+	background:#f1f1f1;
+	text-align:center;
+	.loadMoreBtn{
+		display:inline-block;
+		position:relative;
+		background:inherit;
+		padding:0 20px;
+		z-index:2;
+	}
+}
+.line{
+	height:1PX;
+	background:#d9d9d9;
+	position:absolute;
+	bottom:50px;
+	right:30px;
+	left:30px;
+	z-index:1;
+}

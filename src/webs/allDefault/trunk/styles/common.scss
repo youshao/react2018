@@ -1,0 +1,170 @@
+
+/**************空白行*****************/
+.h20{
+	height:20px;
+}
+.h24{
+	height:20px;
+}
+.h28{
+	height:20px;
+}
+
+.whiteBg{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #fff;
+	z-index: -1;
+}
+
+
+/***************表单部分公共样式********************/
+input{
+	padding:0;
+}
+/*顶部提示信息*/
+.wz_headMsg{
+	padding: 40px 30px 22px;
+	font-size:26px;
+	line-height: 26px;
+	color:#6a6a6a;
+	position:relative;
+	background: #f1f1f1;
+}
+
+/*列表*/
+.wz_list{
+	background:#fff;
+}
+.wz_list .wz_item{
+	height:100px;
+	position:relative;
+	font-size:32px;
+	line-height:100px;
+	padding:0 36px;
+}
+.wz_list .wz_item:not(:last-child):after,.wz_list .wz_item_after:after{
+	content:"";
+	display:block;
+	height:1PX;
+	background:#ebebeb;
+	position:absolute;
+	right:30px;
+	left:30px;
+	bottom:0;
+}
+
+/*item下面的标签*/
+.wz_item .label{
+	color:#1a1a1a;
+	width:50%;
+}
+
+/*item下面的文本输入框*/
+.wz_item .txt{
+	text-align:right;
+	position:absolute;
+	right:36px;
+	top:50%;
+	margin-top:-2px;
+	transform:translateY(-50%);
+	-webkit-transform:translateY(-50%);
+	line-height:normal;
+	border:0;
+	outline:0;
+	color:#6a6a6a;
+	width:50%;
+}
+.wz_item .txt.hasRightIcon{
+	right:62px;
+}	
+.wz_item .txt:disabled{
+	color:#6a6a6a;
+}
+
+input:disabled{
+	-webkit-text-fill-color:#6a6a6a; 
+	-webkit-opacity:1;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+	color: #ababab; 
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+	color: #ababab; 
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+	color: #ababab; 
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+	color: #ababab; 
+} 
+
+/**************空白行*****************/
+.wz_whiteSpace_28{
+	height:28px;
+}
+.wz_whiteSpace_30{
+	height:30px;
+}
+.wz_whiteSpace_50{
+	height:50px;
+}
+
+/************switch样式修改*************/
+
+//选中样式
+.am-switch input[type="checkbox"]:checked + .checkbox {
+    background: #2582ea!important;
+}
+
+//非选中样式
+.am-switch input[type="checkbox"] + .checkbox {
+    background: #c4c4c4!important;
+}
+.am-switch .checkbox:before{
+	background:#c4c4c4!important;
+}
+
+.am-popup{
+    background:rgba(255,255,255,0)!important; 
+}
+
+/*****************按钮*********************/
+.btn{
+	width: 100%;
+	height: 84px;
+	line-height: 84px;
+	text-align: center;
+	color: #fff;
+	background: #2582ea;
+	font-size: 34px;
+	cursor: pointer;
+	border-radius: 6px;
+	&:active{
+		opacity: .8;
+	}
+}
+.notClickBtn{
+	background: #e5e5e5;
+	color: #ababab;
+	&:active{
+		opacity: 1;
+	}
+}
+
+
+
+/****************图标*********************/
+.icon-prompt{
+	position: relative;
+	display: inline-block;
+	top: 14px;
+	width: 50px;
+	height: 50px;
+	background: url('../images/icon-prompt.png') center center no-repeat;
+	background-size: 36px;
+}

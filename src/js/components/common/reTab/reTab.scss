@@ -1,0 +1,41 @@
+.reTabContainer{
+  width:100%;
+  height:100%;
+  background-color: white;
+/*  display: flex;
+  flex-direction:column;*/
+  .reTabTitles{
+    display: flex;
+    margin:0 45px;
+    border: solid 1PX #E6E6E6;
+    border-radius: 6px;
+    height:60px;
+    line-height: 60px;
+    font-size: 28px;
+    overflow: hidden;
+    .reTabTitleItem{
+      flex:1;
+      text-align: center;
+      border-right:solid 1PX #E6E6E6; ;
+    }
+    .reTabTitleItem:nth-last-child(1){
+     border-right: none;
+    }
+
+    .activeTitle{
+      background-color: #F4F4F4 ;
+    }
+  }
+
+  .reTabContents{
+    margin:40px 0 0 0;
+   /* flex:1;*/
+    overflow: auto;
+    .reTabContentItem{
+      display: none;
+    }
+    .activeContent{
+      display: block;
+    }
+  }
+}

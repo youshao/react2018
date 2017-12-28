@@ -1,0 +1,17 @@
+.am-popup{
+    background: rgba(255,255,255,0); //不需要背景色
+}
+
+//年检计算机相关
+.calculatorOfYearlyCheck{
+    .am-list-body{
+        border-top: none;
+    }
+    .am-list-body:after{
+        display: none;
+    }
+    .am-list-item .am-list-line .am-list-extra{
+        font-size: 30px;
+        color: #6a6a6a;
+    }
+}

@@ -1,0 +1,191 @@
+// 商品类型布局通用样式
+.typeList {
+    background-color: #fff;
+    .typeItem{
+        position: relative;
+        width: 100%;
+        height: 280px;
+        .typeBlock {
+            position: absolute;
+            display: inline-block;
+            width: 50%;
+            padding: 36px 30px;
+        }
+    }
+}
+.typeTitle {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translate(0,-50%);
+    -webkit-transform: translate(0,-50%);
+}
+.typeName {
+    font-size: 32px;
+    color: #1a1a1a;
+    line-height: 1;
+    padding-bottom: 10px;
+}
+.typeDescription {
+    font-size: 24px;
+    color: #ababab;
+    line-height: 1;
+}
+.typeImg {
+    position: absolute;
+    right: 30px;
+    bottom: 50%;
+    transform: translate(0,50%);
+    -webkit-transform: translate(0,50%);
+}
+.divider{
+    border-bottom:1PX solid #f1f1f1;
+}
+
+//单行布局
+.hd1{
+    height:140px!important;
+    .typeBlock:nth-child(1){
+        top: 0;
+        left: 0;
+        width:100%;
+        height: 140px;
+        .typeImg {
+            max-width: 345px;
+            height: 102px;
+        }
+    }
+}
+//左1右1布局
+.hd2{
+    height:140px!important;
+    .typeBlock:nth-child(1){
+        top: 0;
+        left: 0;
+        height: 140px;
+        border-right: 1PX solid #f1f1f1;
+    }
+    .typeBlock:nth-child(2){
+        top: 0;
+        right: 0;
+        height: 140px;
+    }
+    .typeImg {
+        width: 104px;
+        height: 102px;
+    }
+
+}
+// 左1右2布局,部分样式会覆盖通用样式
+.hd3a {
+    .typeBlock:nth-child(1) {
+        left: 0;
+        top: 0;
+        height: 280px;
+        border-right: 1PX solid #f1f1f1;
+        .typeTitle {
+            top: 36px;
+            transform: translate(0,0);
+            -webkit-transform: translate(0,0);
+        }
+        .typeImg {
+            right: 50%;
+            bottom: 24px;
+            transform: translate(50%,0);
+            -webkit-transform: translate(50%,0);
+            height: 130px;
+        }
+    }
+    .typeBlock:nth-child(2) {
+        right: 0;
+        top: 0;
+        height: 140px;
+        border-bottom: 1PX solid #f1f1f1;
+        .typeImg {
+            width: 104px;
+            height: 102px;
+        }
+    }
+    .typeBlock:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        height: 140px;
+        .typeImg {
+            width: 104px;
+            height: 102px;
+        }
+    }
+}
+
+// 左2右1布局,部分样式会覆盖通用样式
+.hd3b {
+    .typeBlock:nth-child(3) {
+        right: 0;
+        top: 0;
+        height: 280px;
+        border-left: 1PX solid #f1f1f1;
+        .typeTitle {
+            top: 36px;
+            transform: translate(0,0);
+            -webkit-transform: translate(0,0);
+        }
+        .typeImg {
+            right: 50%;
+            bottom: 24px;
+            transform: translate(50%,0);
+            -webkit-transform: translate(50%,0);
+            height: 130px;
+        }
+    }
+    .typeBlock:nth-child(1) {
+        left: 0;
+        top: 0;
+        height: 140px;
+        border-bottom: 1PX solid #f1f1f1;
+        .typeImg {
+            width: 104px;
+            height: 102px;
+        }
+    }
+    .typeBlock:nth-child(2) {
+        left: 0;
+        bottom: 0;
+        height: 140px;
+        .typeImg {
+            width: 104px;
+            height: 102px;
+        }
+    }
+}
+
+// 左2右2布局,部分样式会覆盖通用样式
+.hd4 {
+    .typeBlock:nth-child(1) {
+        left: 0;
+        top: 0;
+        height: 140px;
+        border-right: 1PX solid #f1f1f1;
+        border-bottom: 1PX solid #f1f1f1;    
+    }
+    .typeBlock:nth-child(2) {
+        right: 0;
+        top: 0;
+        height: 140px;
+        border-bottom: 1PX solid #f1f1f1;
+    }
+    .typeBlock:nth-child(3) {
+        left: 0;
+        bottom: 0;
+        height: 140px;
+        border-right: 1PX solid #f1f1f1;
+    }
+    .typeBlock:nth-child(4) {
+        right: 0;
+        bottom: 0;
+        height: 140px;
+    }
+    .typeImg {
+        width: 104px;
+        height: 102px;
+    }
+}

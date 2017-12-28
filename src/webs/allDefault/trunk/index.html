@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html _manifest="./index.appcache" style="font-size: 50px;">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta name="Cache-Control" content="private">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <script>
+    eval(function (p, a, c, k, e, d) { e = function (c) { return (c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) d[e(c)] = k[c] || e(c); k = [function (e) { return d[e] }]; e = function () { return '\\w+' }; c = 1; }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p; }('(7(){a.z=7(b){8 4=6.g(\'4\');4.F=\'p/Q\';4.r=".d{R:S;P:M;N:0;O:0;p-X:Y}.d>2{9:l;c:l}.n{j-q:Z;k:#W}.o{m:T U#i;m-D:E;A:B-J;C:G H;I:L K;k:#i;j-q:1i}";6.1j(\'1k\').1f(0).1g(4);6.1h.r=\'<1 1q-1o=""><1 f="d"><2 y="\'+(u.1l(\'w-s\')||b)+\'"><1 f="n">1m</1><1 f="o" 16="a.17.14()">11</1></1></1>\'};a.t=7(b){8 2=6.g(\'2\');2.12("13",7(){8 3=6.g("1b"),h=3.18("19");3.9=5.9;3.c=5.c;h.1a(5,0,0,5.9,5.c);8 v=3.1e("1d/x");1c{u.15(\'w-s\',v);}1p(e){}},1n);2.y=b||\'./10/z-V.x\'};a.t(\'\');})()', 62, 89, '|div|img|imgCanvas|style|this|document|function|var|width|window|imgSrc|height|IconNetworkError||class|createElement|imgContext|2fb3fe|font|color|150px|border|networkErrorMsg|refreshBtn|text|size|innerHTML|networkErrorImages|setNetworkErrorImage|localStorage|imgAsDataURL||png|src|networkError|display|inline|margin|radius|5px|type|20px|auto|padding|block|40px|10px|165px|left|right|top|css|position|fixed|1PX|solid|icon|575757|align|center|12px|images|刷新看看|addEventListener|load|reload|setItem|onClick|location|getContext|2d|drawImage|canvas|try|image|toDataURL|item|appendChild|body|15px|getElementsByTagName|HEAD|getItem|网络错误|false|reactroot|catch|data'.split('|'), 0, {}));
+
+    !function (n, e) {
+      var t = n.documentElement, i = "orientationchange" in window ? "orientationchange" : "resize", d = function () {
+        var n = t.clientWidth;
+        if (n) {
+          var e = 50 * (n / 375);
+          e = e > 54 ? 54 : e;
+          t.style.fontSize = e + "px"
+        }
+      };
+      n.addEventListener && (e.addEventListener(i, d, !1), n.addEventListener("DOMContentLoaded", d, !1))
+    }(document, window);
+
+    //车行易埋点
+    (function () {
+      function tj() { //空统计
+        this.init = function (d) { }
+        this.recordUserBehavior = function (d) {
+          if (window.waiteRecordUserBehavior) {
+            window.waiteRecordUserBehavior.push(d);
+          } else {
+            window.waiteRecordUserBehavior = [d];
+          }
+        }
+        this.getNowFormatDate = function () { return ''; }
+      }
+      window.cxytj = new tj; //创建对象
+      var hm = document.createElement("script");
+      hm.src = "https://tongji.cx580.com/userBehavior/static/js/cxytongji_v3.0.js"; //统计JS的路径
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+      window.cxytjReady = function () {
+        window.cxytjIsReady = true;
+      };
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://cx580.oss-cn-shenzhen.aliyuncs.com/cweb/js/react-dom-16.min.js" onerror="networkError('./images/networkError-icon.png')"></script>
+</body>
+
+</html>
+<!--░░░░░░░░░░░░░░░░░░░░░░░░▄░░-->
+<!--░░░░░░░░░▐█░░░░░░░░░░░▄▀▒▌░-->
+<!--░░░░░░░░▐▀▒█░░░░░░░░▄▀▒▒▒▐-->
+<!--░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐-->
+<!--░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐-->
+<!--░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌-->
+<!--░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒-->
+<!--░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐-->
+<!--░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄-->
+<!--░▌░▒▄██▄▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒-->
+<!--▀▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒-->
+<!--单身狗就这样默默地看着你，一句话也不说。-->

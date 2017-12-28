@@ -1,0 +1,69 @@
+.fiexd100{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9;
+	overflow: auto;
+}
+.container{
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	.keyName{
+		position: absolute;
+		top:0;
+		left: 0;
+		padding-left: 30px;
+		background: #f1f1f1;
+		color: #ababab;
+		width: 100%;
+		height: 70px;
+		line-height: 70px;
+		font-size: 28px;
+		z-index: 2;
+	}
+	.left{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow-y:scroll;
+		z-index: 1;
+	}
+	.right{
+		position: absolute;
+		top: 0;
+		right: 10px;
+		height: 100%;
+		overflow: hidden;
+		display: flex;
+		align-items:center;
+		z-index: 3;
+	}
+	.showKeyName{
+		position: absolute;
+		display: none;
+		top:50%;
+		left: 50%;
+		margin-left: -50px;
+		margin-top: -50px;
+		width: 100px;
+		height: 100px;
+		text-align: center;
+		line-height: 100px;
+		background: rgba(0,0,0,0.5);
+		color: #fff;
+		border-radius: 10px;
+		font-size: 30px;
+		z-index: 9
+	}
+	.cars{
+		display: none;
+		padding-left: 225px;
+		background: rgba(0,0,0,0.4);
+		z-index: 5;
+	}
+}

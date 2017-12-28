@@ -1,0 +1,7 @@
+CACHE MANIFEST
+# 2017-12-28 16:37:19
+# 这里除了缓存react文件以为，还应该缓存bundle.js和verdor.js
+//cx580.oss-cn-shenzhen.aliyuncs.com/cweb/js/react-dom-16.min.js
+
+NETWORK:
+*
