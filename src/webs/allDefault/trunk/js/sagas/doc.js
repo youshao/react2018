@@ -1,3 +1,4 @@
+
 import {
   takeEvery,
   delay,
@@ -5,9 +6,7 @@ import {
   buffers,
   channel,
   eventChannel,
-  END
-} from 'redux-saga'
-import {
+  END,
   put,
   call,
   take,
@@ -18,7 +17,8 @@ import {
   cancelled
 } from 'redux-saga/effects'
 
-// 相关API参考 https://neighborhood999.github.io/redux-saga/docs/api/index.html
+// 中文API参考 https://neighborhood999.github.io/redux-saga/docs/api/index.html
+// 英文API参考 https://redux-saga.js.org/docs/api/
 // delay 延迟执行
 // takeEvery 监控某个动作，如果该动作被触发，则执行传入的 saga，如果动作被多次触发，则依次执行
 // takeLatest 监控某个动作，如果该动作被出发，则执行传入的 saga，如果动作被多次触发，则只执行最新的动作

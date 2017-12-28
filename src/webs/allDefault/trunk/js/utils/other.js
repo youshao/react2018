@@ -85,7 +85,6 @@ window.onerror = function (msg, url, l) {
     txt += "Click OK to continue.\n\n";
     if (!config.production) {
         console.log('全局异常捕获：', txt);
-        return true; //正式环境屏蔽错误
     } else {
         return true; //正式环境屏蔽错误
     }

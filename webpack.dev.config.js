@@ -37,7 +37,7 @@ const config = {
     devtool: 'inline-source-map',
 
     devServer: {
-        // contentBase: path.resolve(__dirname, 'dist'),
+        contentBase: path.resolve(__dirname, 'src/webs/' + webConfig.name + webConfig.startPath),
         port: '8888',
         hot: true,
         host: '0.0.0.0',

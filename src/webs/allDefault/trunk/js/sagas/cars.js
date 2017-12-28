@@ -2,24 +2,14 @@
  * 车辆相关
  */
 import {
+    all,
     takeEvery,
     delay,
     takeLatest,
-    buffers,
-    channel,
-    eventChannel,
-    END
-} from 'redux-saga'
-import {
-    race,
     put,
     call,
     take,
     fork,
-    select,
-    actionChannel,
-    cancel,
-    cancelled
 } from 'redux-saga/effects'
 
 import {
@@ -256,11 +246,11 @@ function* watchCheckCardId() {
 }
 
 export function* watchCars() {
-    yield [
+    yield all([
         fork(watchCarCondition),
         fork(watchGetCarInformation),
         fork(watchGetCaptcha),
         fork(watchCheckCaptcha),
         fork(watchCheckCardId),
-    ]
+    ])
 }
