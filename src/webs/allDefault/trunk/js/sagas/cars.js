@@ -2,14 +2,23 @@
  * 车辆相关
  */
 import {
-    all,
-    takeEvery,
     delay,
+    buffers,
+    channel,
+    eventChannel,
+    END,
+} from 'redux-saga'
+import {
+    takeEvery,
     takeLatest,
     put,
     call,
     take,
     fork,
+    select,
+    actionChannel,
+    cancel,
+    cancelled
 } from 'redux-saga/effects'
 
 import {
