@@ -19,7 +19,12 @@
         if (n) {
           var e = 50 * (n / 375);
           e = e > 54 ? 54 : e;
-          t.style.fontSize = e + "px"
+          t.style.fontSize = e + "px";
+          var s = getComputedStyle ? getComputedStyle(t, false)['fontSize'] : '';
+          s = (s.substr(0, s.length - 2)) * 1;
+          if (s && e !== s) {
+            t.style.fontSize = e * (e / s) + "px";
+          }
         }
       };
       n.addEventListener && (e.addEventListener(i, d, !1), n.addEventListener("DOMContentLoaded", d, !1))
