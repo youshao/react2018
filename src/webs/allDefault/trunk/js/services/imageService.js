@@ -1,8 +1,8 @@
 /**
  * 图片相关接口
  */
-
 import apiHelper from './apiHelper';
+import { baseService } from './baseService';
 import config from '../config'
 
 class ImagesService {
@@ -23,16 +23,9 @@ class ImagesService {
      * }
      */
     uploadImg(data) {
-        data.bizType = 'violation';
-        let url = config.production ? 'https://pic.cx580.com:2443/api/upload' : 'http://test-piclib.cx580.com:9016/api/upload';
-        let requestParam = {
-            url: url,
-            data: {
-                method: 'post',
-                body: data
-            }
-        };
-        return apiHelper.fetch(requestParam);
+        data.bizType = 'community';
+        const url = config.production ? 'https://pic.cx580.com:2443/api/upload' : 'http://test-piclib.cx580.com:9016/api/upload';
+        return baseService(url, data);
     }
 
     /**
@@ -43,14 +36,7 @@ class ImagesService {
      * }
      */
     carCheckLicense(data){
-        let requestParam = {
-          url: `${apiHelper.baseApiUrl}car/checkLicense`,
-          data: {
-            method: 'post',
-            body: data
-          }
-        };
-        return apiHelper.fetch(requestParam);
+        return baseService(`${apiHelper.baseApiUrl}car/checkLicense`, data);
     }
 
 }
