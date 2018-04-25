@@ -1,4 +1,7 @@
 $bg-lightgray: #f1f1f1;
+.listBox{
+    -webkit-overflow-scrolling: touch;
+}
 //下拉刷新的box
 .updatasBox{
     position:absolute;
