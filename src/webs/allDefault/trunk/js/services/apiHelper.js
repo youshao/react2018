@@ -1,7 +1,12 @@
 import config from '../config'
 import userHelper from '../utils/userHelper';
+import cxySign from '../utils/cxySign';
 
 require('isomorphic-fetch');
+
+const key1 = config.cxyH5Key1;
+const key2 = config.cxyH5Key2;
+const diySign = key1 + key2;  // 这里拼接key只是为了打包后不那么容易被看出
 
 class ApiHelper {
 
@@ -61,6 +66,14 @@ class ApiHelper {
     fetch(requestParam) {
         let resolveId = -1, rejectId = -1;
         let promise = new Promise((resolve, reject) => {
+            
+            // 网络超时
+            rejectId = setTimeout(() => {
+                clearTimeout(resolveId)
+                reject('网络错误')
+                console.error("网络错误")
+            }, 20000);
+
             resolveId = setTimeout(() => {
                 requestParam.data.method = requestParam.data.method || "get";
                 requestParam.data.headers = requestParam.data.headers || {};
@@ -83,12 +96,22 @@ class ApiHelper {
                 if (!requestParam.data.body.authType) {
                     requestParam.data.body["authType"] = UserIdAndToken.authType;
                 }
-
                 requestParam.data.body["deviceId"] = UserIdAndToken.deviceId;
 
+                /** 签名 */
+                requestParam.data.body["nonceStr"] = cxySign.getNonceStr(); // 随机字符串
+
+                // 转对象为签名所需的字符串（过滤空值）
+                const signStr = cxySign.toSignString(requestParam.data.body);
+
+                // 拼接上Key后再签名
+                const sign = cxySign.fetchSign(`${signStr}&cxyH5Key=${diySign}`);
+                requestParam.data.body["sign"] = sign;
+
+                console.log('签名：', sign);
+                console.log('提交的数据：', requestParam.data.body);
+
                 requestParam.data.body = this.toQueryString(requestParam.data.body);
-
-
                 requestParam.data.mode = "cors";
                 if (requestParam.data.method.trim().toLowerCase() == "get") {
                     var request = new Request(requestParam.url + '?' + requestParam.data.body); //get请求不能有body,否则会报错
@@ -97,7 +120,7 @@ class ApiHelper {
                 }
                 // console.debug("request", request);
                 let result = window.fetch(request, { headers: requestParam.data.headers })
-                    .then(function (response) {
+                    .then((response) => {
                         let resp = response.json();
                         resp.then(function (data) {
                             if (data.code == "2222" || data.code == "4222") {
@@ -105,25 +128,17 @@ class ApiHelper {
                             }
                         });
                         clearTimeout(rejectId)
-                        return resp;
+                        
+                        return resolve(resp);
                     })
-                    .catch(function (e) {
+                    .catch((e) => {
                         clearTimeout(rejectId)
                         console.error("fetch 请求出错了");
                         console.dir(e);
                         // throw e; //使用saga后 这里不能抛错误，应该把错误信息返回给对应的接口，让接口自行处理
-                        return e;
+                        return reject(e);
                     });
-
-                resolve(result)
             }, 0);
-
-            // 网络超时
-            rejectId = setTimeout(() => {
-                clearTimeout(resolveId)
-                console.error("网络错误")
-                reject('网络错误')
-            }, 30000);
         });
         return promise;
     }
