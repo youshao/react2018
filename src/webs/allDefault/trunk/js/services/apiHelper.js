@@ -1,12 +1,7 @@
 import config from '../config'
 import userHelper from '../utils/userHelper';
-import cxySign from '../utils/cxySign';
 
 require('isomorphic-fetch');
-
-const key1 = config.cxyH5Key1;
-const key2 = config.cxyH5Key2;
-const diySign = key1 + key2;  // 这里拼接key只是为了打包后不那么容易被看出
 
 class ApiHelper {
 
@@ -66,14 +61,15 @@ class ApiHelper {
     fetch(requestParam) {
         let resolveId = -1, rejectId = -1;
         let promise = new Promise((resolve, reject) => {
-            
+
             // 网络超时
             rejectId = setTimeout(() => {
                 clearTimeout(resolveId)
-                reject('网络错误')
                 console.error("网络错误")
-            }, 20000);
+                reject('网络错误')
+            }, 30000);
 
+            // 接口请求
             resolveId = setTimeout(() => {
                 requestParam.data.method = requestParam.data.method || "get";
                 requestParam.data.headers = requestParam.data.headers || {};
@@ -96,22 +92,12 @@ class ApiHelper {
                 if (!requestParam.data.body.authType) {
                     requestParam.data.body["authType"] = UserIdAndToken.authType;
                 }
+
                 requestParam.data.body["deviceId"] = UserIdAndToken.deviceId;
 
-                /** 签名 */
-                requestParam.data.body["nonceStr"] = cxySign.getNonceStr(); // 随机字符串
-
-                // 转对象为签名所需的字符串（过滤空值）
-                const signStr = cxySign.toSignString(requestParam.data.body);
-
-                // 拼接上Key后再签名
-                const sign = cxySign.fetchSign(`${signStr}&cxyH5Key=${diySign}`);
-                requestParam.data.body["sign"] = sign;
-
-                console.log('签名：', sign);
-                console.log('提交的数据：', requestParam.data.body);
-
                 requestParam.data.body = this.toQueryString(requestParam.data.body);
+
+
                 requestParam.data.mode = "cors";
                 if (requestParam.data.method.trim().toLowerCase() == "get") {
                     var request = new Request(requestParam.url + '?' + requestParam.data.body); //get请求不能有body,否则会报错
@@ -122,13 +108,12 @@ class ApiHelper {
                 let result = window.fetch(request, { headers: requestParam.data.headers })
                     .then((response) => {
                         let resp = response.json();
-                        resp.then(function (data) {
+                        resp.then((data) => {
                             if (data.code == "2222" || data.code == "4222") {
                                 userHelper.Login();
                             }
                         });
-                        clearTimeout(rejectId)
-                        
+                        clearTimeout(rejectId);
                         return resolve(resp);
                     })
                     .catch((e) => {
